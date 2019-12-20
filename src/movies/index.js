@@ -5,24 +5,26 @@ const { check, validationResult, sanitizeBody } = require("express-validator")
 const path = require("path")
 const moviesPath = path.join(__dirname, "movies.json")
 
+
 const router = express.Router();
 
 //  CRUD for movies ( /media GET, POST, DELETE, PUT)
 
-    const getMoviess = async()=>{
+    const getMovies = async()=>{
         const buffer = await fs.readFile(moviesPath);
+        // console.log(moviesPath)
         return JSON.parse(buffer.toString())
     }
 
 router.get("/", async (req, res) => {
-    res.send(await getMoviess());
+    res.send(await getMovies());
 }); 
 
 router.get("/:id", async (req, res)=>{
     const movies = await getMovies()
-    const movie = movie.find(b => b.imdbID === req.params.id);
-    if (movie)
-        res.send(movies)
+    const movie = movies.find(gm => gm.imdbID === req.params.id);//within movies array, find a particular movie
+    if (movie) //if movie specified by its id is found
+        res.send(movie) //responde with a movie
     else
         res.status(404).send("imdbID" + `${imdbID}` + "Not Found")
 });
@@ -35,7 +37,7 @@ router.post("/",
     [check("Title").exists().withMessage("Title is required"),
     sanitizeBody("Year").toInt(),
     check("imdbID").exists().withMessage("imdbID is required"),
-    check("Type").isNumeric().withMessage("Type is required"),]
+    check("Type").exists().withMessage("Type is required"),]
     ,async(req, res) => {
         const errors = validationResult(req)
         if (!errors.isEmpty())
@@ -70,7 +72,7 @@ router.post("/",
             const position = movies.indexOf(movieToEdit);
             const updateMovie = Object.assign(movieToEdit, req.body)
             movies[position] = updateMovie;
-            await fs.writeFile(moviePath, JSON.stringify(movies))
+            await fs.writeFile(moviesPath, JSON.stringify(movies))
             res.status(200).send("Updated!")
         }
         else

@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "986db686-044f-4172-bd25-3aca105e5f82",
+		"name": "API for LinkedIn React APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Profile ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://strive-school-testing-apis.herokuapp.com/api/profile/me",
+					"protocol": "https",
+					"host": [
+						"strive-school-testing-apis",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile",
+						"me"
+					]
+				},
+				"description": "`GET https://strive-school-testing-apis.herokuapp.com/api/profile/`"
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Profiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://strive-school-testing-apis.herokuapp.com/api/profile/",
+					"protocol": "https",
+					"host": [
+						"strive-school-testing-apis",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile",
+						""
+					]
+				},
+				"description": "`https://strive-school-testing-apis.herokuapp.com/api/profile/`"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Profile By UserName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "`GET https://striveschool.herokuapp.com/api/profiles/{username}`"
+			},
+			"response": []
+		},
+		{
+			"name": "POST profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"\",\n    \"surname\": \"\",\n    \"email\": \"\",\n    \"bio\": \"\",\n    \"title\": \"\",\n    \"area\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://strive-school-testing-apis.herokuapp.com/api/profile/",
+					"protocol": "https",
+					"host": [
+						"strive-school-testing-apis",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile",
+						""
+					]
+				},
+				"description": "`POST https://strive-school-testing-apis.herokuapp.com/api/profile/`\n\n**Body**\n```\n \"name\": \"Diego\",\n \"surname\": \"Banovaz\",\n \"email\": \"diego@strive.school\",\n \"bio\": \"SW ENG\",\n \"title\": \"COO @ Strive School\",\n \"area\": \"Berlin\",\n}\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Profile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"image\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://strive-school-testing-apis.herokuapp.com/api/profile/?_id=5de4d18b631d990017331012",
+					"protocol": "https",
+					"host": [
+						"strive-school-testing-apis",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile",
+						""
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "5de4d18b631d990017331012"
+						}
+					]
+				},
+				"description": "`PUT https://strive-school-testing-apis.herokuapp.com/api/profile/?_id={_ID}`"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Profile",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "`DELETE https://strive-school-testing-apis.herokuapp.com/api/profile/?_id={_ID}}`"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "gX7HF4hYaYyJAzpt",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user25",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

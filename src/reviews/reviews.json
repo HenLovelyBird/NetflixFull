@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "123455",
+        "comment": "A good movie but definitely I don't like many parts of the plot",
+        "rate": 3,
+        "elementId": "5d318e1a8541744830bef139",
+        "createdAt": "2019-08-01T12:46:45.895Z"
+    },
+    {
+        "comment": "great!",
+        "rate": 5,
+        "elementId": "5d318e1a8541744830bef139",
+        "_id": 2,
+        "createdAt": "2019-12-20T13:51:49.485Z"
+    },
+    {
+        "comment": "great!",
+        "rate": 5,
+        "elementId": "5d318e1a8541744830bef139",
+        "_id": 85,
+        "createdAt": "2019-12-20T13:54:52.487Z"
+    }
+]

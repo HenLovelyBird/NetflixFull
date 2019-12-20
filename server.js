@@ -1,7 +1,7 @@
 const express = require("express")
 const server = express();
 const moviesRouter = require("./src/movies")
-// const reviewsRouter = require("./src/reviews")
+const reviewsRouter = require("./src/reviews")
 // const cors = require("cors")
 
 // var whitelist = ['http://localhost:3000','https://localhost:3000']
@@ -19,9 +19,9 @@ const moviesRouter = require("./src/movies")
 server.use(express.json())
 // server.use(cors(corsOptions))
 server.use("/movies", moviesRouter)
-// server.use("/reviews", reviewsRouter)
+server.use("/reviews", reviewsRouter)
 
-const port = process.env.PORT || 1000
+const port = process.env.PORT || 5000
 server.listen(port, () => {
     console.log("Howdy, I'm listening on port " + port)
 })

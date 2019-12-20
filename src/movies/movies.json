@@ -96,5 +96,17 @@
         "imdbID": "tt4154796",
         "Type": "movie",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
+    },
+    {
+        "Title": "BB King: the documentary",
+        "Year": "2001",
+        "imdbID": "tt01207BB",
+        "Type": "documentary"
+    },
+    {
+        "Title": "BB King: the documentary",
+        "Year": 2001,
+        "imdbID": "tt01207BB",
+        "Type": "movie"
     }
 ]
