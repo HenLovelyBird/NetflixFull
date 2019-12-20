@@ -1,7 +1,7 @@
 const express = require("express")
 const fs = require("fs-extra")
 const { check, validationResult, sanitizeBody } = require("express-validator")
-const { uuid } = require ("uuid/v4")
+const uuid = require ("uuid/v4")
 
 const path = require("path")
 const reviewsPath = path.join(__dirname, "reviews.json")
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res)=>{
 // }
 router.post("/",
     [check("comment").exists().withMessage("A comment is necessary"),
-    sanitizeBody("rate").toInt({min:0, max:5}),
+    sanitizeBody("rate").toInt({min:0,max:5}),
     check("elementID").exists().withMessage("imdbID is required"),
     ]
     ,async(req, res) => {
@@ -48,7 +48,7 @@ router.post("/",
             const reviews = await getReviews();
             const newReview = {
                 ...req.body,
-                _id: reviewsPath.length + 1,
+                _id: uuid(),
                 createdAt: new Date()
                 }
 
@@ -74,7 +74,7 @@ router.post("/",
 
     router.put("/:id", async(req, res)=>{
         const reviews = await getReviews()
-        const reviewToEdit = reviews.find(mr => mr.imdbID === req.params.id);
+        const reviewToEdit = reviews.find(mr => mr._id === req.params.id);
         if (reviewToEdit)
         {
             const position = reviews.indexOf(reviewToEdit);
